@@ -1,1 +1,1 @@
-bla
+Typescript is awesome. Here is why! 
