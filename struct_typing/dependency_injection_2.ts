@@ -1,5 +1,5 @@
 class Context {
-    dependencyAlpha = new DependencyAlpha("A")
+    dependencyAlpha = new DependencyAlpha("A");
     dependencyBeta = new DependencyBeta("B");
     dependencyGamma = new DependencyGamma("C");
 }

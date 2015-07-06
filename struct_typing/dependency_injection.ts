@@ -17,6 +17,25 @@ class Fish extends Animal {
   gills : boolean;
 }
 
+
+var cat = new Cat();
+var dog : Dog = cat; // <- dog is a cat ... structurally!
+// var fish : Fish : cat; // <- compile error
+
+
+// f : (number, string) => { x: number, y: string }
+var f = (x, y) => { return { x: x + 3, y: y + 'world'} };
+
+// animals : Animal[];
+var animals = [ new Dog(), new Cat(), new Fish() ];
+
+
+window.onmousedown = function(mouseEvent) {
+  console.log(mouseEvent.buton);  //<- Error
+};
+
+
+animals,f;
 //-----------------
 
 class Context {
@@ -40,7 +59,7 @@ module Western {
   }
 
   export class FoodProcessor implements Processor<Fish> {
-    constructor(private di : Dependencies) {
+    constructor(private $ : Dependencies) {
     }
 
     process(...fishes : Fish[]) {
@@ -48,7 +67,7 @@ module Western {
     }
 
     processDependencies() {
-      console.log(`Some tasty ${this.di.fish} tartar! Haaarr...`);
+      console.log(`Some tasty ${this.$.fish} tartar! Haaarr...`);
     }
   }
 
@@ -62,14 +81,14 @@ module Chinese {
   }
 
   export class FoodProcessor implements Processor<Animal> {
-    constructor(private di : Dependencies) { }
+    constructor(private $ : Dependencies) { }
 
     process(...animals : Animal[]) {
       console.log(`${ !!animals && animals.map(a => a.name)  } 个饱!`);
     }
 
     processDependencies() {
-      console.log(`${this.di.dog} 和 ${this.di.cat} 个饱!`);
+      console.log(`${this.$.dog} 和 ${this.$.cat} 个饱!`);
     }
   }
 
